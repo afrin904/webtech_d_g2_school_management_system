@@ -5,6 +5,54 @@
         $myfile = fopen("../view/test.txt", "r");
         $readfile = fread($myfile, filesize("../view/test.txt"));
         $data = explode("|", $readfile);
+
+        if (isset($_REQUEST['submit'])){
+        	$pass = $_REQUEST['pass'];
+        	$npass = $_REQUEST['npass'];
+        	$rpass = $_REQUEST['rpass'];
+        	$error = "";
+        	$error1 = "";
+        	$error2 = "";
+        	$error3 = "";
+        if(empty($pass))
+	    {
+	    	$error .="Password is required!";
+			
+	    }
+	    elseif($data[3] != $pass)
+	    {
+	    	$error .="Current Password Doesn't Match!";
+	    }
+	    if (empty($npass))
+	     {
+	    	$error1 .="Type Password!";
+	    }
+	    elseif(!preg_match("/^([A-Z\.]+[a-z]+[0-9]+[%$&])$/",$npass) || strlen($npass)!=5)
+	    {
+	    	$error1 .="Not a valid Password!";
+			
+	    }
+	    elseif ($data[3] == $npass || $data[3] == $rpass) 
+	    {
+	    	$error1 .="Invalid! All Passwords are same.";
+	    }
+		 
+		if( empty($rpass))
+	    {
+	    	$error2 .="Type Password!";
+			
+	    }
+	    elseif($npass != $rpass)
+		{
+			$error2 .="Password Doesn't Match!"; 
+		}
+		elseif(!empty($pass) || !empty($npass) || !empty($rpass))
+		{
+			
+			$error3 .= "Password has Changed";
+		}
+	}
+
 ?>
 <html>
 <head>
@@ -13,49 +61,40 @@
 <body>
 
 	<table width="900px" border="1" align="center">
-		<tr colspan="3">
-			<td  align="center">
-				<img src="../assets/pic1.jpg" width="100px" height="100px" ></td>
-				<td align="right">
-				<b>Welcome <a href="../view/profile.php"><?php echo $data[0];?></a>|
-				 <a href="../view/change_password.php">Change Password</a>|	
-	             <a href="../php/logout.php">Logout</a></b>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				
-				<a href="../view/student.php">Dashboard</a></br>
-				<a href="../view/grade.php">Grade</a></br>
-				<a href="../view/attendance.php">Attendance</a></br>
-				<a href="../view/notes.php">Notes</a></br>
-				<a href="../view/notice.php">Notice</a></br>
-				<a href="../view/text_books.php">Text Books</a></br>
-				<a href="../view/assign_cover.php">Assignment Cover</a></br>
-			    <a href="../view/payment.php">Payment Details</a></br>
-				<a href="../view/feedback.php">Feedback</a></br>
-				<a href="../view/mail.php">Mail</a></br>
-			</td>
+		<?php include '../view/headers.php';?>
 			<td>
 				<form>
 			<fieldset>
 			<legend><h2><b>Change Password</b></h2></legend>
 	    	
-	    	 Current Password:<input type="Password" name="password" value=""><br>
+	    	 Current Password:<input type="Password" name="pass" value=""><?php
+					if (isset($error))						
+	                {echo $error ;}
+                    ?><br>
 	    	  <br>
 	       
-	    	 New Password:<input type="Password" name="npassword" value="" > <br>
+	    	 New Password:<input type="Password" name="npass" value="" ><?php
+					if (isset($error1))						
+	                {echo $error1 ;}
+                    ?> <br>
               <br>
-	    	 Retype New Password: <input type="Password" name="rpassword" value="" > 
+	    	 Retype New Password: <input type="Password" name="rpass" value="" > <?php
+					if (isset($error2))						
+	                {echo $error2 ;}
+                    ?>
 	    	 <hr>
 				<input type="submit" name="submit" value="Change Password">
 				<button title="Must contain 5 letters"><b>i</b></button>
+				 <?php
+					if (isset($error3))						
+	                {echo $error3 ;}
+                    ?>
 		       
       </fieldset>
 	</form>	
 			</td>
 		</tr>
-				
+				<?php include '../view/footer.php';?>
 	</table>
 </body>
 </html>

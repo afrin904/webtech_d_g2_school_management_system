@@ -29,7 +29,7 @@
 
 			<hr>
 			<textarea name="message" rows="5" cols="30"></textarea></br><hr>
-						<input type="submit" name="submit" value="Done">
+						<input type="submit" name="submit" value="Send">
 					</fieldset>
 				</form>
 			</td>

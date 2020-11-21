@@ -5,11 +5,11 @@
 </head>
 <body>
 	<table width="900px" border="0" align="center">
-	<tr>
-	 <td>
+		<tr>
+			<td>
 	<center>
 	<img src="../assets/pic1.jpg" width="100px" height="100px" >
-        </center>
+</center>
 	<h2>Overview</h2>
 	<ul>
 		<li>School Type - Private Schools</li>

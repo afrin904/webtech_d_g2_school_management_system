@@ -1,0 +1,35 @@
+.menubar{
+	background:#3C3E4D;
+}
+h2{
+	color:#ffff;
+	font-style:italic;
+}
+.menubar a{
+	color:orange;
+	text-decoration:none;
+}
+.menubar a:hover{
+	color:red;
+	text-decoration:underline;
+}
+.footer{
+	background:#20353F;
+	color:yellow;
+}
+#left_content{
+	background:#F9D8C1;
+}
+#article{
+	color:red;
+	margin-top:-140px;
+	font-style:italic;
+	font-size:20px;
+}
+
+.picture{
+	margin-top:100px;
+}
+.submit{
+	background:blue;
+}

@@ -1,9 +1,19 @@
+*{
+	margin:0;
+	padding:0;
+}
+.header_top{
+	
+}
 .menubar{
 	background:#3C3E4D;
 }
 h2{
 	color:#ffff;
 	font-style:italic;
+}
+h2:hover{
+	color:#99FF99;
 }
 .menubar a{
 	color:orange;
@@ -19,17 +29,30 @@ h2{
 }
 #left_content{
 	background:#F9D8C1;
+	width:100px;
 }
 #article{
 	color:red;
 	margin-top:-140px;
 	font-style:italic;
 	font-size:20px;
+	background:#3C3E4D;
 }
-
 .picture{
 	margin-top:100px;
 }
-.submit{
-	background:blue;
+body{
+	background:#99FF99;
+}
+
+.reg_wrapeer{
+	background:#CCFFCC;
+}
+#content_design{
+	margin-top:-100px;
+	margin-left:40px;
+	
+}
+.contact{
+	margin-left:400px;
 }

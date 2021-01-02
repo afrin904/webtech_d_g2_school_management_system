@@ -19,22 +19,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	if($select == "Bangla"){
 
-	$sql = "SELECT homework,assignment,performance,attendance,writtenexam,grade,subject  FROM grade WHERE id = '$id' and subject = 'Bangla'";
+	$sql = "SELECT * FROM grade WHERE id = '$id' and subject = 'Bangla'";
 	$result = $conobj->query($sql);
     }
     else if($select == "English"){
 
-	$sql = "SELECT homework,assignment,performance,attendance,writtenexam,grade,subject  FROM grade WHERE id = '$id' and subject = 'English'";
+	$sql = "SELECT *  FROM grade WHERE id = '$id' and subject = 'English'";
 	$result = $conobj->query($sql);
     }
     else if($select == "Math"){
 
-	$sql = "SELECT homework,assignment,performance,attendance,writtenexam,grade,subject  FROM grade WHERE id = '$id' and subject = 'Math'";
+	$sql = "SELECT * FROM grade WHERE id = '$id' and subject = 'Math'";
 	$result = $conobj->query($sql);
     }
     else{
 
-	$sql = "SELECT homework,assignment,performance,attendance,writtenexam,grade,subject   FROM grade WHERE id = '$id' and subject = 'General Knowledge'";
+	$sql = "SELECT *  FROM grade WHERE id = '$id' and subject = 'General Knowledge'";
 	$result = $conobj->query($sql);
     }
 
@@ -51,24 +51,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<table width="1000px" border="1" align="center">
+	<table class="studenthome_design" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 
 	<td>
 		   
-		    			<h2 style="background:#3C3E4D;color:orange;font-style:italic;" ><b>Grades Marks Quizes</b></h2>
-		    			<center>
-					
-					<select name="select" >
-				
+		    			<h2><b>Grades Marks Quizes<center>
+
+				<select name="select" >
+				<option value="select-class">select-class</option>
 				<option value="Bangla">Bangla</option>
 				<option value="English">English</option>
                 <option value="Math">Math</option>
                 <option value="General Knowledge">General Knowledge</option>
                
 			    </select>
-			    <input type ="submit" value ="Submit">
-			     <br></center><hr>
+			    	<input type ="submit" value ="Submit">
+			    	 </b></h2></b><hr>
+			    	 </center>
 		    		
 						<?php
 				if($select == "Bangla" || $select == "English" || $select == "Math" || $select == "General Knowledge" ){
@@ -77,7 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		        while($row = $result->fetch_assoc()) {
 		        
 			    echo "
-			            <h1>$row[subject]</h1></br><hr><hr>
+			            <h3>$row[subject] [$row[section]]</h3>
+			            <h4>Total Mark :100; Passing Mark:50; Contributes:100%</h4>
+			            </br><hr><hr>
 						<b>Home Work: </b>$row[homework]</br>
 						<b>Assignment: </b>$row[assignment]</br>
 						<b>Performance: </b>$row[performance]</br>

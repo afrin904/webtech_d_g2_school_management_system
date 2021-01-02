@@ -7,19 +7,30 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
+include ('../model/db.php');
+$connection = new db();
+$conobj=$connection->OpenCon();
+global $result;
+
+	$sql = "SELECT * FROM assignment";
+	$result = $conobj->query($sql);
+	
+
+	$connection->CloseCon($conobj); 
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	
-	<title>Notice</title>
+	<title>Assignment</title>
 	
 </head>
 <body>
-	<table width="1000px" border="1" align="center">
+	<table class="studenthome_design" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 	<td>
+		<h2><b>Download Assignment Cover Page</b></h2>
 				<form>
 					<fieldset>
 						<center><legend><h2><b>Assignment Cover Page</b></h2></legend></center>
@@ -27,7 +38,24 @@ if(isset($_SESSION['id']))
 						Assignment Cover Form (.doc)</br>
                         Download Assignment Cover (.doc) form.</br>
                         <hr>
-						<a href="../view/download.php"> Download </a>
+						
+						<?php
+				
+					if ($result->num_rows > 0) {
+		
+		        while($row = $result->fetch_assoc()) {
+		        	?>
+			  
+			
+			  <a href="../assets/<?php echo $row["assignment"] ?>"> <?php echo $row["assignment"] ?></a>
+			<?php
+			
+	        }
+			
+		        }
+				 
+				?>
+			
 						</center>
 					</fieldset>
 				</form>

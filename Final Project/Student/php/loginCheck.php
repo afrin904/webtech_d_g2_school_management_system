@@ -1,8 +1,8 @@
 <?php
 include('../model/db.php');
 session_start(); 
-
- $error="";
+$name="";
+$error="";
 // store session data
 if (isset($_POST['submit'])) {
 if (empty($_POST['id']) || empty($_POST['password'])) {
@@ -22,6 +22,7 @@ $userQuery=$connection->checkUser($conobj,"registration",$id,$password);
 if ($userQuery->num_rows > 0) {
 $_SESSION["id"] = $id;
 $_SESSION["password"] = $password;
+include('../php/HomeCheck.php');
 
    }
  else {

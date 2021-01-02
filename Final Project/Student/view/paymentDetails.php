@@ -28,10 +28,10 @@ global $result;
 </head>
 <body>
 	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<table width="1000px" border="1" align="center">
+	<table class="studenthome_design" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 	<td>
-		<center><h2><b>Payment</b></h2></center>
+		<h2><b>Payment Details</b></h2>
 				<form>
 					<fieldset>
 						
@@ -42,7 +42,7 @@ global $result;
 		        while($row = $result->fetch_assoc()) {
 			  
 			 echo "
-			           <center><h3>Semester : </h3>$row[semester]</br><hr></center>
+			           <center><h3>Semester : $row[semester]</h3></br><hr></center>
 						<b>Amount :</b>$row[amount]</br><hr>
 						<b>Status :</b>$row[status]</br><hr>
 						<b>Payment Date :</b>$row[date]</br><hr>

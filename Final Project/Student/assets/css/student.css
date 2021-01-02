@@ -1,0 +1,97 @@
+*{
+	
+}
+
+.studenthome_design{
+	height:700px;
+}
+#header{
+	background:#3C3E4D;
+	color:#FFFF;
+}
+.left_content{
+	background:#E6B3FF;
+}
+.footer_design{
+	background:#3C3E4D;
+	color:#FFFF;
+}
+.body_design{
+	background:#99FF99;
+}
+
+h2{
+	color:red;
+	border: 1px solid green;
+	background:#00CC66;
+}
+
+#table_head{
+	background:blue;
+	color:#ffff;
+	
+}
+.subtable{
+	text-align:center;
+}
+
+.subtable a{
+	text-decoration:none;
+	color:#ffff;
+}
+
+#button{
+	background:#CC0000;
+	border-radius:5px;
+	
+}
+#button:hover{
+	background:green;
+}
+#dropdown{
+	background:green;
+	
+	color:#ffff;
+	margin-bottom:5px;
+}
+
+input[type ="submit"]{
+	margin-top:10px;
+	background:#036EE6;
+	border:none;
+	padding:10px;
+	width:80px;
+	color: #ffff;
+	height:34px;
+	
+}
+#buttonpost{
+	margin-left:-300px;
+	margin-top:10px;
+	background:green;
+	border:none;
+	padding:10px;
+	width:80px;
+	color: #ffff;
+	height:34px;
+}
+.button1{
+	background:green;
+	border-radius:5px;
+	color:#fff;
+}
+#id{
+	width:180px;
+	height:20px;
+}
+.search_ajax{
+	background:#E8E8FF;
+}
+#table_headgrade{
+	
+	background:#00CC66;
+	color:#ffff;
+}
+#text_area{
+	background:#E8E8FF;
+}

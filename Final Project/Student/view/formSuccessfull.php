@@ -1,16 +1,10 @@
 <?php
-
 session_start(); 
 if (empty($_SESSION['name']) || empty($_SESSION['email'])|| empty( $_SESSION['password']) || empty($_SESSION['cpassword']) || empty($_SESSION['gender']) || empty($_SESSION['phone']) || empty($_SESSION['user'])) 
 {
 header("Location: registration.php");
 }
-
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html>

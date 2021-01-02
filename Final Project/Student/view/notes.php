@@ -1,13 +1,46 @@
 <?php
 	//session starts
-	session_start();
-	if(isset($_SESSION['id']))
-	{
-		$id = $_SESSION['id'];
-	}else {
-		header("location:index.php");
-	}
-	//session ends
+session_start();
+if(isset($_SESSION['id']))
+{
+	$id = $_SESSION['id'];
+}else {
+	header("location:index.php");
+}
+include ('../model/db.php');
+$connection = new db();
+$conobj=$connection->OpenCon();
+global $result;
+global $select;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+	
+	$select =  $_POST['select'];
+	
+	if($select == "Bangla"){
+
+	$sql = "SELECT * FROM notes WHERE  subject = 'Bangla'  and section= 'a'";
+	$result = $conobj->query($sql);
+    }
+    else if($select == "English"){
+
+	$sql = "SELECT * FROM notes WHERE  subject = 'English' and section= 'b'";
+	$result = $conobj->query($sql);
+    }
+    else if($select == "Math"){
+
+	$sql = "SELECT *FROM notes WHERE subject = 'Math' and section= 'a'";
+	$result = $conobj->query($sql);
+    }
+    else{
+
+	$sql = "SELECT * FROM notes WHERE subject = 'General Knowledge' and section= 'b'";
+	$result = $conobj->query($sql);
+    }
+
+	
+	$connection->CloseCon($conobj); 
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,59 +50,68 @@
 	
 </head>
 <body>
- <table width="800px" border="1" align="center">
- 	<?php include 'header.php';?>
- 	<td>
-				<center><h2><b>Notes</b></h2>
-					<select name="notes" >
-				
-				<option value="Bangla" selected>Bangla</option>
+<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<table class="studenthome_design" width="100%" border="1" align="center">
+		 <?php include 'header.php';?>
+
+	<td>
+		   
+		    			<h2><b>Notes<center>
+
+				<select name="select">
+				<option value="select-class">select-class</option>
+				<option value="Bangla">Bangla</option>
 				<option value="English">English</option>
                 <option value="Math">Math</option>
                 <option value="General Knowledge">General Knowledge</option>
                
-			    </select> <br></center>
-						<table border="1" align="center">
-							<tr  align="center">
-								<td width="50px">
-									<h3>#SI</h3>
-								</td>
-								<td width="100px">
-									<h3>Date</h3>
-								</td>
-								<td width="200px">
-									<h3>Notes</h3>
-								</td>
-							</tr>
-							<tr align="center">
-								<td>1</td>
-								<td>15/11/2020</td>
-								<td>
-									<b><a href="../view/text_books.php">Hand Written</a></b></br><hr>
-								</td>
-							</tr>
-							<tr align="center">
-								<td>2</td>
-								<td>16/11/2020</td>
-								<td>
-									<b><a href="../view/text_books.php">Assignment</a></b></br><hr>
-								</td>
-							</tr>
+			    </select>
+			    	<input type ="submit" value ="Submit">
+			    	 </b></h2></b><hr>
+			    	 </center>
 
-							<tr align="center">
-								<td>3</td>
-								<td>17/11/2020</td>
-								<td>
-									<b><a href="../view/text_books.php">Home Work</a></b></br><hr>
-								</td>
-							</tr>
-								
-							</tr>
-						</table>
+		    		
+				<table border=1 cellspacing="0" align="center">
+	    <thead id="table_head">
+	    	<th>Subject</th>
+			<th>Date</th>
+			<th>Notes</th>
 			
-	   </center>
-	 </td>
-     <?php include 'footer.php';?>
-   </table>
+			
+		</thead>
+		 <tbody>    
+			
+				<?php
+				if($select == "Bangla" || $select == "English" || $select == "Math" || $select == "General Knowledge" ){
+					if ($result->num_rows > 0) {
+		
+		        while($row = $result->fetch_assoc()) {
+			
+			echo "<tr>";
+
+			echo "<td>$row[subject]</td>
+			 <td>$row[date]</td>";
+			?>
+			<td><a href="../assets/<?php echo $row["notes"] ?>"> <?php echo $row["notes"] ?></a></td>
+			<?php
+			echo "</tr>";
+			
+	        }
+			
+		    }
+		    }
+				 
+				?>
+			
+		</tbody>
+
+	</table>
+  </td>
+   <?php include 'footer.php';?>
+  </table>
+  </center>
+  </form>
+  
 </body>
 </html>
+

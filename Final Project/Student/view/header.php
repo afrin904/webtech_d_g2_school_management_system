@@ -1,17 +1,20 @@
-           <link rel="stylesheet" href="../assets/css/home.css" />
-            <tr colspan="3" style="color:#3C3E4D;; font-style:italic; ">
-
-					<td>
-					<img src="../assets/f5.jpg" width="60px" height="60px">
-				    <b>Scientific School </b></td>
-					<td align="center">
-					<h1>Welcome <a href="../view/profile.php"><?php echo $id;?>!</h1>
+          
+            <tr colspan="3">
+					<td id="header" colspan="2" align="center" height="20px;">
+					<h1>
+					Welcome <?php echo $_COOKIE['userName']; ?><br>
+					<?php echo $id; ?>!
+					</h1>
 					</td>
 			</tr>
 			<tr width="200px">	
-				<td id="left_content" width="200px" class="menubar">
+				<td id="left_content" width="200px">
 
 					<ul>
+						<li>
+							<a href="search.php">Search</a>
+							<br/>
+						</li>
 						<li>
 							<a href="profile.php">Profile</a>
 							<br/>
@@ -41,6 +44,10 @@
 							<br>
 						 </li>
 						 <li>	
+							<a href="syllabus.php">Syllabus</a>
+							<br>
+						 </li>
+						 <li>	
 							<a href="assign_cover.php">Assignment Cover</a>
 							<br>
 						 </li>
@@ -53,11 +60,11 @@
 							<br>
 						 </li>
 						  <li>	
-							<a href="email.php">Email</a>
+							<a href="email.php">Email from Teacher</a>
 							<br>
 						 </li>
 						 <li>	
-							<a href="../php/logout.php">logout</a>
+							<a href="../php/logout.php">Logout</a>
 							<br>
 						 </li>
 

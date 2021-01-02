@@ -7,7 +7,16 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
+include ('../model/db.php');
+$connection = new db();
+$conobj=$connection->OpenCon();
+global $result;
+
+$sql = "SELECT * FROM emaila";
+$result = $conobj->query($sql);
+	
+
+$connection->CloseCon($conobj); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,44 +26,43 @@ if(isset($_SESSION['id']))
 	
 </head>
 <body>
-	<table width="800px" border="1" align="center">
-		 <?php include 'header.php';?>
-	<td>
+	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<table class="studenthome_design" width="100%" border="1" align="center">
+		<?php include 'header.php';?>		
+<td>
 	<center>
-	<center>
-	<select>
-		<option value="bangla">Bangla</option>
-				<option value="english">English</option>
-				<option value="math">Math</option>
-				<option value="General Knowledge">General Knowledge</option>
-	</select>
-	<table border="1" cellspacing="0">
-		<tr>
-		    <td>
-				<form>
-					<fieldset>
-						<legend><h3><b>Email</b></h3></legend>
-						From:<input type="text" name="from"></br>
-						<hr>
-						To:<input type="text" name="to"></br>
-						<hr>
-						Subject:<input type="text" name="subject"></br>
-						<hr>
-					</br>
-						Body:</br>
-						<textarea name="message" rows="10" cols="50"></textarea></br><hr>
-						<input type="submit" name="submit" value="Send">
-					</fieldset>
-				</form>
-			</td>
-		</tr>
-		
+		<h2>Email From Teacher</h2>	</center>
+		<form method="" align = "center">
+
+			<table border="1" cellspacing="0" width="500px" height="300px">
+			<tbody>    
 			
-	</table>
-	</center> 
-   </center>
-   </td>
-    <?php include 'footer.php';?>
-  </table>
+				<?php
+				
+					if ($result->num_rows > 0) {
+		
+		        while($row = $result->fetch_assoc()) {
+			  
+					
+					echo "<tr><td>From : $row[frm]<hr>
+					Subject : $row[subject]<hr>
+					Message : $row[body]</td></tr>" ;
+					
+							}
+			
+							}
+				 
+				?>
+			
+		</tbody>
+			</table>
+
+			</form>			
+			
+		</form>
+
+</td>
+ <?php include 'footer.php';?>
+</table>
 </body>
 </html>

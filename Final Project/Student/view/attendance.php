@@ -51,23 +51,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<table width="1000px" border="1" align="center">
+	<table class="studenthome_design" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 
 	<td>
-    <center>
-    	
-				<select name="select" >
+		<h2><b>Attendance<center>
 
+				<select name="select" >
+				<option value="select-class">select-class</option>
 				<option value="Bangla">Bangla</option>
 				<option value="English">English</option>
-				<option value="Math">Math</option>
-				<option value="General Knowledge">General Knowledge</option>
-			</select>
-			<input type ="submit" value ="Submit">
-	
+                <option value="Math">Math</option>
+                <option value="General Knowledge">General Knowledge</option>
+               
+			    </select>
+			    	<input type ="submit" value ="Submit">
+			    	 </b></h2></b><hr>
+			    	 </center>
 	<table border=1 cellspacing="0" align="center">
-	    <thead>
+	    <thead id="table_head">
 			<th>Name</th>
 			<th>ID</th>
 			<th>Email</th>

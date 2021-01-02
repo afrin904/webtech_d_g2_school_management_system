@@ -35,7 +35,7 @@ global $result;
 
 				<form>
 					<fieldset>
-						<h2><b>Text Books</b></h2>
+						<h2><b>Syllabus</b></h2>
 					 
 					 <?php 	
 					if ($result->num_rows > 0) {
@@ -44,20 +44,20 @@ global $result;
 		        	?>
 
 									<b>Bangla : 
-									<a href="../assets/<?php echo $row["book"] ?>">Bangla Book</a>
+									<a href="../assets/<?php echo $row["book"] ?>">Bangla Syllabus</a>
 									<hr>
 									<hr>
 								
 									<b>English : 
-									<a href="../assets/<?php echo $row["book"] ?>">English Book</a>
+									<a href="../assets/<?php echo $row["book"] ?>">English Syllabus</a>
 									<hr>
 									<hr>
 									<b>Math : 
-									<a href="../assets/<?php echo $row["book"] ?>">Math Book</a>
+									<a href="../assets/<?php echo $row["book"] ?>">Math Syllabus</a>
 									<hr>
 									<hr>
 									<b>General Knowledge :
-									<a href="../assets/<?php echo $row["book"] ?>">General Knowledge Book</a>
+									<a href="../assets/<?php echo $row["book"] ?>">General Knowledge Syllabus</a>
 									<hr>
 									<hr>
 								 

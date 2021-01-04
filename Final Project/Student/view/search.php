@@ -39,10 +39,10 @@ function showmyuser() {
 </head>
 <body>
 	<center>
-		<table class="studenthome_design" width="100%" border="1" cellspacing="0">
+		<table class="studenthome_design" style="background: #fce1b6;" width="100%" border="1" cellspacing="0">
 			
 			<?php include 'header.php';?>
-			    <td  class="search_ajax" width ="600px" height="400px">
+			    <td width ="600px" height="400px">
 				<h2>Search Class Schedule by ID</h2>
 				<center>
 				<input type="text" name ="id" id="id"/>

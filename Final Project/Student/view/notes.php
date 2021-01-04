@@ -19,22 +19,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	if($select == "Bangla"){
 
-	$sql = "SELECT * FROM notes WHERE  subject = 'Bangla'  and section= 'a'";
+	$sql = "SELECT * FROM notes ";
 	$result = $conobj->query($sql);
     }
     else if($select == "English"){
 
-	$sql = "SELECT * FROM notes WHERE  subject = 'English' and section= 'b'";
+	$sql = "SELECT * FROM notes";
 	$result = $conobj->query($sql);
     }
     else if($select == "Math"){
 
-	$sql = "SELECT *FROM notes WHERE subject = 'Math' and section= 'a'";
+	$sql = "SELECT *FROM notes ";
 	$result = $conobj->query($sql);
     }
     else{
 
-	$sql = "SELECT * FROM notes WHERE subject = 'General Knowledge' and section= 'b'";
+	$sql = "SELECT * FROM notes ";
 	$result = $conobj->query($sql);
     }
 
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 <form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<table class="studenthome_design" width="100%" border="1" align="center">
+	<table class="studenthome_design" style="background: #fce1b6;" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 
 	<td>
@@ -71,10 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			    	 </center>
 
 		    		
-				<table border=1 cellspacing="0" align="center">
+				<table border=1 cellspacing="0" align="center" width="30%">
 	    <thead id="table_head">
-	    	<th>Subject</th>
-			<th>Date</th>
+	    	
 			<th>Notes</th>
 			
 			
@@ -88,9 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		        while($row = $result->fetch_assoc()) {
 			
 			echo "<tr>";
-
-			echo "<td>$row[subject]</td>
-			 <td>$row[date]</td>";
+			
 			?>
 			<td><a href="../assets/<?php echo $row["notes"] ?>"> <?php echo $row["notes"] ?></a></td>
 			<?php

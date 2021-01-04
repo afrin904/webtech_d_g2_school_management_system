@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<table class="studenthome_design" width="100%" border="1" align="center">
+	<table class="studenthome_design" style="background: #fce1b6;" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 
 	<td>
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			    	<input type ="submit" value ="Submit">
 			    	 </b></h2></b><hr>
 			    	 </center>
-	<table border=1 cellspacing="0" align="center">
+	<table border=1 cellspacing="0" align="center" width="50%">
 	    <thead id="table_head">
 			<th>Name</th>
 			<th>ID</th>

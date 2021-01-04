@@ -29,7 +29,7 @@ global $result;
 </head>
 <body>
 	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<table class="studenthome_design" width="100%" border="1" align="center">
+	<table class="studenthome_design" style="background: #fce1b6;" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 <td>
 
@@ -43,7 +43,7 @@ global $result;
 		        while($row = $result->fetch_assoc()) {
 		        	?>
 
-									<b>Bangla : 
+								    <b>Bangla : 
 									<a href="../assets/<?php echo $row["book"] ?>">Bangla Syllabus</a>
 									<hr>
 									<hr>
@@ -57,12 +57,9 @@ global $result;
 									<hr>
 									<hr>
 									<b>General Knowledge :
-									<a href="../assets/<?php echo $row["book"] ?>">General Knowledge Syllabus</a>
+									<a href="../assets/<?php echo $row["book"] ?>">General Syllabus</a>
 									<hr>
 									<hr>
-								 
-				
-			  
 		
 			<?php
 			

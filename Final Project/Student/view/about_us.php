@@ -5,7 +5,7 @@
 </head>
 <body>
 <center>
-	<table width="900px" border="1" align="center" cellspacing="0">
+	<table width="100%" border="1" align="center" cellspacing="0">
 		<tr>
 			<td width="100px"><img src="../assets/f5.jpg" width="130px" height="130px"></td>
 			

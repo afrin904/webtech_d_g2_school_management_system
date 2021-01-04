@@ -27,7 +27,7 @@ global $result;
 	
 </head>
 <body>
-	<table class="studenthome_design" width="100%" border="1" align="center">
+	<table class="studenthome_design" style="background: #fce1b6;" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 	<td>
 		<h2><b>Download Assignment Cover Page</b></h2>

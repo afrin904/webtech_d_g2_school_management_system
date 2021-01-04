@@ -16,9 +16,11 @@ if(isset($_SESSION['id']))
 	  <title>Login</title>
 	  <link rel="stylesheet" href="../assets/css/loginstyle.css">
    </head>
-   <body>
-      <div class="center">
-	     <h1>Login</h1>
+   <body style="background:#fce1b6;">
+      <div class="center" >
+      	 <center><img src="../assets/f5.jpg" width="80px" height="80px">
+				 <b style="font-style:italic;">Sunflower Govt. High School</b><br/>
+					</center>
 		 <form method="post">
 		    <div class="txt_field">
 			   <input type="text" value="" name="id" required>

@@ -20,13 +20,13 @@ if(isset($_SESSION['id']))
 </head>
 <body>
 	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<table class="studenthome_design" width="100%" border="1" align="center">
+	<table class="studenthome_design" style="background: #fce1b6;" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 	<td>
 		<h2>Feedback</h2>
 		<form method="post">
 			<center>
-			<input type="text" name="subject" placeholder="subject">
+			<input type="text" name="subject" placeholder="Subject">
 			<br>
 			<textarea id="text" name="feedback" id="" cols="30" rows="10" placeholder="Feedback"></textarea><br>
 			<input type="submit" name="submit" value="Send">
